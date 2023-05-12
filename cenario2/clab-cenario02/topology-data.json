@@ -1,0 +1,173 @@
+{
+  "name": "cenario02",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-316d12b2e09b",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "2001:172:20:20::/64",
+        "ipv6-gw": "2001:172:20:20::1",
+        "mtu": "1500",
+        "external-access": true
+      }
+    }
+  },
+  "nodes": {
+    "c2r1": {
+      "index": "0",
+      "shortname": "c2r1",
+      "longname": "clab-cenario02-c2r1",
+      "fqdn": "c2r1.cenario02.io",
+      "group": "",
+      "labdir": "/home/luispatricio/clab/cenario2/clab-cenario02/c2r1",
+      "kind": "srl",
+      "image": "ghcr.io/nokia/srlinux",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::4",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-316d12b2e09b",
+        "clab-node-group": "",
+        "clab-node-kind": "srl",
+        "clab-node-lab-dir": "/home/luispatricio/clab/cenario2/clab-cenario02/c2r1",
+        "clab-node-name": "c2r1",
+        "clab-node-type": "ixrd2",
+        "clab-topo-file": "/home/luispatricio/clab/cenario2/cenario02.clab.yml",
+        "containerlab": "cenario02"
+      }
+    },
+    "c2r2": {
+      "index": "1",
+      "shortname": "c2r2",
+      "longname": "clab-cenario02-c2r2",
+      "fqdn": "c2r2.cenario02.io",
+      "group": "",
+      "labdir": "/home/luispatricio/clab/cenario2/clab-cenario02/c2r2",
+      "kind": "srl",
+      "image": "ghcr.io/nokia/srlinux",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-316d12b2e09b",
+        "clab-node-group": "",
+        "clab-node-kind": "srl",
+        "clab-node-lab-dir": "/home/luispatricio/clab/cenario2/clab-cenario02/c2r2",
+        "clab-node-name": "c2r2",
+        "clab-node-type": "ixrd2",
+        "clab-topo-file": "/home/luispatricio/clab/cenario2/cenario02.clab.yml",
+        "containerlab": "cenario02"
+      }
+    },
+    "client1": {
+      "index": "2",
+      "shortname": "client1",
+      "longname": "clab-cenario02-client1",
+      "fqdn": "client1.cenario02.io",
+      "group": "",
+      "labdir": "/home/luispatricio/clab/cenario2/clab-cenario02/client1",
+      "kind": "linux",
+      "image": "ghcr.io/hellt/network-multitool",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-316d12b2e09b",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/luispatricio/clab/cenario2/clab-cenario02/client1",
+        "clab-node-name": "client1",
+        "clab-node-type": "",
+        "clab-topo-file": "/home/luispatricio/clab/cenario2/cenario02.clab.yml",
+        "containerlab": "cenario02"
+      }
+    },
+    "client2": {
+      "index": "3",
+      "shortname": "client2",
+      "longname": "clab-cenario02-client2",
+      "fqdn": "client2.cenario02.io",
+      "group": "",
+      "labdir": "/home/luispatricio/clab/cenario2/clab-cenario02/client2",
+      "kind": "linux",
+      "image": "ghcr.io/hellt/network-multitool",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.5",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::5",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-316d12b2e09b",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/luispatricio/clab/cenario2/clab-cenario02/client2",
+        "clab-node-name": "client2",
+        "clab-node-type": "",
+        "clab-topo-file": "/home/luispatricio/clab/cenario2/cenario02.clab.yml",
+        "containerlab": "cenario02"
+      }
+    }
+  },
+  "links": [
+    {
+      "a": {
+        "node": "client1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:18:5e:58",
+        "peer": "z"
+      },
+      "z": {
+        "node": "c2r1",
+        "interface": "e1-2",
+        "mac": "aa:c1:ab:eb:a1:f1",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "c2r1",
+        "interface": "e1-1",
+        "mac": "aa:c1:ab:3e:6f:bf",
+        "peer": "z"
+      },
+      "z": {
+        "node": "c2r2",
+        "interface": "e1-1",
+        "mac": "aa:c1:ab:8e:c8:34",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "c2r2",
+        "interface": "e1-2",
+        "mac": "aa:c1:ab:61:15:11",
+        "peer": "z"
+      },
+      "z": {
+        "node": "client2",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:f5:9f:3e",
+        "peer": "a"
+      }
+    }
+  ]
+}

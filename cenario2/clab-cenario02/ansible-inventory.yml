@@ -1,0 +1,14 @@
+all:
+  children:
+    linux:
+      hosts:
+        clab-cenario02-client1:
+          ansible_host: 172.20.20.3
+        clab-cenario02-client2:
+          ansible_host: 172.20.20.5
+    srl:
+      hosts:
+        clab-cenario02-c2r1:
+          ansible_host: 172.20.20.4
+        clab-cenario02-c2r2:
+          ansible_host: 172.20.20.2

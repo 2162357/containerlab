@@ -1,0 +1,26 @@
+# Lab 2 # 
+#client1 - C1R1 - C1R2 - Client2
+name: cenario02
+
+topology:
+  kinds:
+    srl:
+      image: ghcr.io/nokia/srlinux
+    linux:
+      image: ghcr.io/hellt/network-multitool
+  nodes:
+    c2r1:
+      kind: srl
+      startup-config: c2r1.cfg
+    c2r2:
+      kind: srl
+      startup-config: c2r2.cfg
+    client1:
+      kind: linux
+    client2:
+      kind: linux
+
+  links:
+    - endpoints: ["client1:eth1", "c2r1:e1-2"]
+    - endpoints: ["c2r1:e1-1", "c2r2:e1-1"]
+    - endpoints: ["c2r2:e1-2", "client2:eth1"]

@@ -1,0 +1,18 @@
+# CENARIO 0 # 
+#PC1 - PC2
+name: cenario00
+
+topology:
+  kinds:
+    srl:
+      image: ghcr.io/nokia/srlinux
+    linux:
+      image: ghcr.io/hellt/network-multitool
+  nodes:
+    client1:
+      kind: linux
+    client2:
+      kind: linux
+
+  links:
+    - endpoints: ["client1:eth1", "client2:eth1"]
