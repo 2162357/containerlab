@@ -17,7 +17,12 @@ ifup eth1
 
 ip route add 10.10.10.0/24 via 10.20.20.1
 
-apk add zabbix-agent
-apk add vim
-apk add nano
-apk add openrc
+apt update
+apt install vim
+apt install nano
+apt install net-tools
+apt install iputils-ping
+apt install telnet
+apt install iperf3
+apt install openssh-server
+apt install zabbix-agent
