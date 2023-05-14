@@ -1,0 +1,8 @@
+# bak files
+cenario01/.cenario01.clab.yml.bak
+cenario02/.cenario02.clab.yml.bak
+cenario03/.cenario03.clab.yml.bak
+# generated folders from clab
+cenario01/clab-cenario01/
+cenario02/clab-cenario02/
+cenario03/clab-cenario03/
