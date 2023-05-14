@@ -17,6 +17,7 @@ ifup eth1
 
 ip route add 10.20.20.0/24 via 10.10.10.1
 
+apk update
 apk add vim
 apk add nano
 apk add openrc
