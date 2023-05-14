@@ -2,14 +2,12 @@
 #PC1 - C1R1 - PC2
 name: cenario01
 
-
-
 topology:
   kinds:
     srl:
       image: ghcr.io/nokia/srlinux
     linux:
-      image: ubuntu:latest
+      image: luisfpatricio/ubuntu-network-multitool
   nodes:
     c1r1:
       kind: srl
