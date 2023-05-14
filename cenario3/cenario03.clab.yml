@@ -1,5 +1,5 @@
-# Lab 2 # 
-#client1 - C3R1 - C3R3 -C3R2 - Client2
+# Lab 3 # 
+#Client1 - C3R1 - C3R3 - C3R2 - Client2
 name: cenario03
 
 topology:
@@ -7,21 +7,32 @@ topology:
     srl:
       image: ghcr.io/nokia/srlinux
     linux:
-      image: ghcr.io/hellt/network-multitool
+      image: luisfpatricio/ubuntu-network-multitool
   nodes:
     c3r1:
       kind: srl
-      startup-config: c3r1.cfg
+      startup-config: configs/c3r1.cfg
     c3r2:
       kind: srl
-      startup-config: c3r2.cfg
+      startup-config: configs/c3r2.cfg
     c3r3:
       kind: srl
-      startup-config: c3r3.cfg
+      startup-config: configs/c3r3.cfg
     client1:
       kind: linux
+      binds:
+        - ./zabbix/:/etc/zabbix/temp/
+      ports:
+      - "10051:10050"
+      mgmt-ipv4: 172.20.20.21
     client2:
       kind: linux
+      user: root
+      binds:
+        - ./zabbix/:/etc/zabbix/temp/
+      ports:
+      - "10052:10050"
+      mgmt-ipv4: 172.20.20.22
 
   links:
     - endpoints: ["client1:eth1", "c3r1:e1-2"]

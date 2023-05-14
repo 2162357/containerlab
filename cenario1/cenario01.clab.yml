@@ -1,5 +1,5 @@
-# CENARIO 1 # 
-#PC1 - C1R1 - PC2
+# Laab 1 # 
+#Client1 - C1R1 - Client2
 name: cenario01
 
 topology:
@@ -30,5 +30,5 @@ topology:
       mgmt-ipv4: 172.20.20.22
 
   links:
-    - endpoints: ["client3:eth1", "c1r1:e1-1"]
-    - endpoints: ["c1r1:e1-2", "client4:eth1"]
+    - endpoints: ["client1:eth1", "c1r1:e1-1"]
+    - endpoints: ["c1r1:e1-2", "client2:eth1"]
