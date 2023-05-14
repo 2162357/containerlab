@@ -1,26 +1,14 @@
 #!/bin/bash
 
-cat > /etc/network/interfaces << EOF
-auto eth0
-iface eth0 inet dhcp
+apt update
+#apt upgrade
+apt install vim nano net-tools traceroute iproute2 netscript-2.4 iputils-ping telnet iperf3 openssh-server zabbix-agent -y
 
-auto eth1
-
-iface eth1 inet static
-  address 10.10.10.25
-  netmask 255.255.255.0
-  gateway 10.10.10.1
-
-EOF
-
-ifup eth1
-
+ip addr add 10.10.10.25/24 dev eth1
 ip route add 10.20.20.0/24 via 10.10.10.1
-
-apk update
-apk add vim
-apk add nano
-apk add openrc
-apk add zabbix-agent
+ip route add 1.1.1.1/32 via 10.10.10.1
+ip route add 2.2.2.2/32 via 10.10.10.1
 
 
+cp /etc/zabbix/temp/zabbix_agentd.conf /etc/zabbix/zabbix_agentd.conf
+service zabbix-agent start

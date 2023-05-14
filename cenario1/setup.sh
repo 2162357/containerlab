@@ -9,7 +9,7 @@ configure_CLIENT() {
 
 echo
 PIDS=""
-CLIENT=("client1" "client2" "client3")
+CLIENT=("client1" "client2")
 
 
 for VARIANT in ${CLIENT[@]}; do
