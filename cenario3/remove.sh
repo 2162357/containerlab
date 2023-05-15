@@ -18,13 +18,13 @@ then
     echo "State: UP - Docker container: $CountT"
     echo "Removing all containers and folders generate by clab"
     sudo docker rm -f $(sudo docker ps -a -q)
-    sudo rm -rf clab-cenario00
-    sudo rm -rf .cenario00.clab.yml.bak
+    sudo rm -rf clab-cenario03
+    sudo rm -rf .cenario03.clab.yml.bak
 else
     echo "State: DOWN - Docker container $CountT"
     echo "Remove foldes generate by clab"
-    sudo rm -rf clab-cenario00
-    sudo rm -rf .cenario00.clab.yml.bak
+    sudo rm -rf clab-cenario03
+    sudo rm -rf .cenario03.clab.yml.bak
 fi
 
 echo "Total: $CountT"

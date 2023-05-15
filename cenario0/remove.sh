@@ -1,13 +1,10 @@
 #!/bin/bash
-####################################################################################
-# List of all containers and see what is up and down
-####################################################################################
+###############################################################
+# Check if there is containers up and running 
+# and remove all contianers and folders created by clab
+###############################################################
 Containers=$(docker ps -a --format "{{.Names}}")
-Checkin=true
-StatusContainer=0
 CountT=0
-CountA=0
-CountI=0
 #echo "State - Docker Container Name"
 for val in $Containers; do
 let CountT++
