@@ -14,5 +14,7 @@ ip route add 2.2.2.2/32 via 10.10.10.1
 
 # Copy new config file to the original location
 cp /etc/zabbix/temp/zabbix_agentd.conf /etc/zabbix/zabbix_agentd.conf
+cp /etc/ssh/temp/ssh_config /etc/ssh/ssh_config
 #Start zabbix agent
 service zabbix-agent start
+service ssh start

@@ -8,6 +8,10 @@ topology:
       image: ghcr.io/nokia/srlinux
     linux:
       image: luisfpatricio/ubuntu-network-multitool
+      user: root
+      binds:
+        - ./zabbix/:/etc/zabbix/temp/
+        - ./ssh/:/etc/ssh/temp/
   nodes:
     c2r1:
       kind: srl
@@ -17,16 +21,11 @@ topology:
       startup-config: configs/c2r2.cfg
     client1:
       kind: linux
-      binds:
-        - ./zabbix/:/etc/zabbix/temp/
       ports:
       - "10051:10050"
       mgmt-ipv4: 172.20.20.21
     client2:
       kind: linux
-      user: root
-      binds:
-        - ./zabbix/:/etc/zabbix/temp/
       ports:
       - "10052:10050"
       mgmt-ipv4: 172.20.20.22
