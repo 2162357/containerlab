@@ -1,10 +1,11 @@
 #!/bin/bash
 
 CFG_DIR=./configs
+CFG_CLAB=clab-cenario00
 
 configure_CLIENT() {
-  docker cp $CFG_DIR/$1.sh clab-cenario00-$1:/tmp/
-  docker exec clab-cenario00-$1 bash /tmp/$1.sh 2>/dev/null
+  docker cp $CFG_DIR/$1.sh $CFG_CLAB-$1:/tmp/
+  docker exec $CFG_CLAB-$1 bash /tmp/$1.sh 2>/dev/null
 }
 
 echo
@@ -13,7 +14,7 @@ CLIENT=("client1" "client2")
 
 
 for VARIANT in ${CLIENT[@]}; do
-  ( configure_CLIENT $VARIANT ) &
+  ( configure_CLIENT $VARIANT (echo "###################### Client $VARIANT ######################") ) &
   REF=$!
   echo "[$REF] Configuring $VARIANT..."
   PIDS+=" $REF"

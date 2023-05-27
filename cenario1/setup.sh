@@ -1,10 +1,11 @@
 #!/bin/bash
 
 CFG_DIR=./configs
+CFG_CLAB=clab-cenario01
 
 configure_CLIENT() {
-  docker cp $CFG_DIR/$1.sh clab-cenario01-$1:/tmp/
-  docker exec clab-cenario01-$1 bash /tmp/$1.sh 2>/dev/null
+  docker cp $CFG_DIR/$1.sh $CFG_CLAB-$1:/tmp/
+  docker exec $CFG_CLAB-$1 bash /tmp/$1.sh 2>/dev/null
 }
 
 echo
