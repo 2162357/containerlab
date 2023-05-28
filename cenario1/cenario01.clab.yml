@@ -6,6 +6,8 @@ topology:
   kinds:
     srl:
       image: ghcr.io/nokia/srlinux
+      binds:
+        - ./iperf/:/etc/iperf/temp/
     linux:
       image: luisfpatricio/ubuntu-network-multitool
       user: root

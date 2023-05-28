@@ -18,7 +18,7 @@ then
     sudo rm -rf clab-cenario00
     sudo rm -rf .cenario00.clab.yml.bak
 else
-    echo "State: DOWN - Docker container: $CountT"
+    echo "State: DOWN - Docker container: $CountT"iperf3 -c 10.10.10.25 -u -b 1000M 
     echo "Remove folders generate by clab"
     sudo rm -rf clab-cenario00
     sudo rm -rf .cenario00.clab.yml.bak
