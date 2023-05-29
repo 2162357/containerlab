@@ -14,7 +14,7 @@ CLIENT=("client1" "client2")
 
 
 for VARIANT in ${CLIENT[@]}; do
-  ( configure_CLIENT $VARIANT (echo "###################### Client $VARIANT ######################") ) &
+  ( configure_CLIENT $VARIANT) &
   REF=$!
   echo "[$REF] Configuring $VARIANT..."
   PIDS+=" $REF"
