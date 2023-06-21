@@ -11,6 +11,7 @@ topology:
     linux:
       image: luisfpatricio/ubuntu-network-multitool
       user: root
+      group: server
       binds:
         - ./zabbix/:/etc/zabbix/temp/
         - ./ssh/:/etc/ssh/temp/
