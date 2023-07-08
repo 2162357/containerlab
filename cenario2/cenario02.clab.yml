@@ -1,6 +1,6 @@
-# Lab 2 # 
+# Topologia 2 # 
 #Client1 - C2R1 - C2R2 - Client2
-name: cenario02
+name: topology02
 
 topology:
   kinds:

@@ -1,6 +1,6 @@
-# Lab 3 # 
+# Topologia 3 # 
 #Client1 - C3R1 - C3R3 - C3R2 - Client2
-name: cenario03
+name: topology03
 
 topology:
   kinds:
