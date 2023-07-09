@@ -1,0 +1,37 @@
+# Lab 2 # 
+#Client1 - C2R1 - C2R2 - Client2
+name: cenario02
+
+topology:
+  kinds:
+    srl:
+      image: ghcr.io/nokia/srlinux
+    linux:
+      image: luisfpatricio/ubuntu-network-multitool
+      user: root
+      group: server
+      binds:
+        - ./zabbix/:/etc/zabbix/temp/
+        - ./ssh/:/etc/ssh/temp/
+  nodes:
+    c2r1:
+      kind: srl
+      startup-config: configs/c2r1.cfg
+    c2r2:
+      kind: srl
+      startup-config: configs/c2r2.cfg
+    client1:
+      kind: linux
+      ports:
+      - "10051:10050"
+      mgmt-ipv4: 172.20.20.21
+    client2:
+      kind: linux
+      ports:
+      - "10052:10050"
+      mgmt-ipv4: 172.20.20.22
+
+  links:
+    - endpoints: ["client1:eth1", "c2r1:e1-2"]
+    - endpoints: ["c2r1:e1-1", "c2r2:e1-1"]
+    - endpoints: ["c2r2:e1-2", "client2:eth1"]

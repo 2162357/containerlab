@@ -1,0 +1,29 @@
+# CENARIO 0 # 
+#PC1 - PC2
+name: cenario00
+
+topology:
+  kinds:
+    srl:
+      image: ghcr.io/nokia/srlinux
+    linux:
+      image: luisfpatricio/ubuntu-network-multitool
+      user: root
+      group: server
+      binds:
+        - ./zabbix/:/etc/zabbix/temp/
+        - ./ssh/:/etc/ssh/temp/
+  nodes:
+    client1:
+      kind: linux
+      mgmt-ipv4: 172.20.20.21
+      ports:
+      - "10051:10050"
+    client2:
+      kind: linux
+      mgmt-ipv4: 172.20.20.22
+      ports:
+      - "10052:10050"
+
+  links:
+    - endpoints: ["client1:eth1", "client2:eth1"]
