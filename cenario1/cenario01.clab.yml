@@ -1,0 +1,36 @@
+# Laab 1 # 
+#Client1 - C1R1 - Client2
+name: cenario01
+
+topology:
+  kinds:
+    srl:
+      image: ghcr.io/nokia/srlinux
+      binds:
+        - ./iperf/:/etc/iperf/temp/
+    linux:
+      image: luisfpatricio/ubuntu-network-multitool
+      user: root
+      group: server
+      binds:
+        - ./zabbix/:/etc/zabbix/temp/
+        - ./ssh/:/etc/ssh/temp/
+  nodes:
+    c1r1:
+      kind: srl
+      startup-config: configs/c1r1.cfg
+      mgmt-ipv4: 172.20.20.11
+    client1:
+      kind: linux
+      ports:
+      - "10051:10050"
+      mgmt-ipv4: 172.20.20.21
+    client2:
+      kind: linux
+      ports:
+      - "10052:10050"
+      mgmt-ipv4: 172.20.20.22
+
+  links:
+    - endpoints: ["client1:eth1", "c1r1:e1-1"]
+    - endpoints: ["c1r1:e1-2", "client2:eth1"]
